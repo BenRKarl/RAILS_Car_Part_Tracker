@@ -16,11 +16,16 @@
   <input type="submit" value="Delete Car">
 </form>
 
+<h2>List of Parts:</h2>
+
 <form action="<%= @car.id %>/parts/new" method="get">
   <input type="submit" value="Add New Part">
 </form>
 
 <ul class="car-parts-list">
+  <% @parts.each do |part| %>
+    <li><a href="/cars/<%= @car.id %>/parts/<%= part.id %>"><%= part.name %></li></a>
+  <% end %>
 </ul>
 
 <form></form>
