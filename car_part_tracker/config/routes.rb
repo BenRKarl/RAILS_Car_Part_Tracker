@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get '/' => 'cars#index'
 
-  resources :cars
-  resources :parts
+  resources :cars do
+    resources :parts
+  end
+
 end

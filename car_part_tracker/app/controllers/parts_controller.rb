@@ -1,5 +1,17 @@
 class PartsController < ApplicationController
 
+def new
+  @part = Parts.new
+end
+
+def create
+  binding.pry
+  car = Cars.find(params[:id])
+  part = Part.create(part_params)
+  car.parts << part
+  redirect_to car_path
+end
+
   # parts GET    /parts(.:format)          parts#index
   #         POST   /parts(.:format)          parts#create
   # new_part GET    /parts/new(.:format)      parts#new

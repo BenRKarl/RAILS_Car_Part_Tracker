@@ -6,6 +6,7 @@ end
 
 def show
   @car = Cars.find(params[:id])
+  # @parts = @car.parts.all
 end
 
 def new

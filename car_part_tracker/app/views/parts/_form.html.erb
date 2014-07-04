@@ -1,0 +1,11 @@
+<%= form_for @part, :url => parts_path(@part) do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %></br>
+  <%= f.label :type %>:
+  <%= f.text_field :type %></br>
+  <%= f.label :part_number %>:
+  <%= f.text_field :part_number %></br>
+  <%= f.label :repair_details %>:
+  <%= f.text_field :repair_details %></br>
+  <%= f.submit 'Add Part' %>
+<% end %>
