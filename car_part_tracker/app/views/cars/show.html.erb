@@ -6,3 +6,12 @@
   <li><%= @car.make %></li>
   <li><%= @car.make %></li>
 </ul>
+
+<form action="/cars/<%= @car.id %>/edit" method="get">
+  <input type="submit" value="Edit Car">
+</form>
+
+<form action="/cars/<%= @car.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Car">
+</form>

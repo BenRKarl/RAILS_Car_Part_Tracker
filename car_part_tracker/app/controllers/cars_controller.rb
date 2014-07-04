@@ -17,6 +17,12 @@ def create
   redirect_to cars_path
 end
 
+def destroy
+  car = Cars.find(params[:id])
+  car.delete
+  redirect_to cars_path
+end
+
 #           POST   /cars(.:format)           cars#create
 #   new_car GET    /cars/new(.:format)       cars#new
 #  edit_car GET    /cars/:id/edit(.:format)  cars#edit
