@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704173251) do
+ActiveRecord::Schema.define(version: 20140704184444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140704173251) do
     t.string   "part_type"
     t.string   "part_number"
     t.string   "repair_details"
-    t.integer  "card_id"
+    t.integer  "car_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
