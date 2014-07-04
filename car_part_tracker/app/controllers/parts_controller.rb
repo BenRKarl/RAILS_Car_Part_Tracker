@@ -1,14 +1,13 @@
 class PartsController < ApplicationController
 
 def new
-  @part = Parts.new
+  @part = Part.new
 end
 
 def create
-  binding.pry
-  car = Cars.find(params[:id])
-  part = Part.create(part_params)
-  car.parts << part
+  @car = Car.find(params[:car_id].to_i)
+  @part = Part.create(part_params)
+  @car.parts << @part
   redirect_to car_path
 end
 
@@ -20,5 +19,11 @@ end
   #         PATCH  /parts/:id(.:format)      parts#update
   #         PUT    /parts/:id(.:format)      parts#update
   #         DELETE /parts/:id(.:format)      parts#destroy
+
+private
+
+  def part_params
+    params.require(:part).permit(:name, :part_type, :part_number, :repair_details)
+  end
 
 end
