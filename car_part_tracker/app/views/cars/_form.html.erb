@@ -1,7 +1,11 @@
-<%= form_for @car do |f| %>
+<%= form_for @car, url: {action: 'create'} do |f| %>
+  <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.label :VIN %>
   <%= f.text_field :VIN %>
+  <%= f.label :make %>
   <%= f.text_field :make %>
+  <%= f.label :model %>
   <%= f.text_field :model %>
   <%= f.submit 'Create New Car' %>
 <% end %>

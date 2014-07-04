@@ -8,6 +8,11 @@ def new
   @car = Cars.new
 end
 
+def create
+  @car = Cars.create(car_params)
+  redirect_to cars_path
+end
+
 #           POST   /cars(.:format)           cars#create
 #   new_car GET    /cars/new(.:format)       cars#new
 #  edit_car GET    /cars/:id/edit(.:format)  cars#edit
@@ -15,6 +20,12 @@ end
 #           PATCH  /cars/:id(.:format)       cars#update
 #           PUT    /cars/:id(.:format)       cars#update
 #           DELETE /cars/:id(.:format)       cars#destroy
+
+private
+
+def car_params
+  params.require(:cars).permit(:name, :VIN, :make, :model)
+end
 
 end
 
