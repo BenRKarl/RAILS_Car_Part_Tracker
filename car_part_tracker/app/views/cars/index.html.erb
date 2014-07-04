@@ -1,0 +1,14 @@
+<h1>Choose your car</h1>
+<h2>Or create a new one!</h2>
+
+<form action="/cars/new" method="get">
+  <input type="submit" value="Create New Car">
+</form>
+
+<ul class="car-list">
+  <% @cars.each do |car| %>
+    <li>
+      <a href="/cars/<%= car.id %>"><%= car.name %> - <%= car.make %>: <%= car.model %></a>
+    </li>
+  <% end %>
+</ul>

@@ -1,6 +1,13 @@
 class CarsController < ApplicationController
 
-# cars GET    /cars(.:format)           cars#index
+def index
+  @cars = Cars.all
+end
+
+def new
+  @car = Cars.new
+end
+
 #           POST   /cars(.:format)           cars#create
 #   new_car GET    /cars/new(.:format)       cars#new
 #  edit_car GET    /cars/:id/edit(.:format)  cars#edit
