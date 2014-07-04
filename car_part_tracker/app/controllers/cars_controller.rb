@@ -17,6 +17,16 @@ def create
   redirect_to cars_path
 end
 
+def edit
+  @car = Cars.find(params[:id])
+end
+
+def update
+  car = Cars.find(params[:id])
+  car.update(car_params)
+  redirect_to car_path(car.id)
+end
+
 def destroy
   car = Cars.find(params[:id])
   car.delete

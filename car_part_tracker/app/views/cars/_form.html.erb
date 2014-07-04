@@ -1,12 +1,12 @@
-<%= form_for @car, url: {action: 'create'} do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :VIN %>
-  <%= f.text_field :VIN %>
-  <%= f.label :make %>
-  <%= f.text_field :make %>
-  <%= f.label :model %>
-  <%= f.text_field :model %>
+<%= form_for @car do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %></br>
+  <%= f.label :VIN %>:
+  <%= f.text_field :VIN %></br>
+  <%= f.label :make %>:
+  <%= f.text_field :make %></br>
+  <%= f.label :model %>:
+  <%= f.text_field :model %></br>
   <%= f.submit 'Create New Car' %>
 <% end %>
 
