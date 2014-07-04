@@ -4,6 +4,10 @@ def index
   @cars = Cars.all
 end
 
+def show
+  @car = Cars.find(params[:id])
+end
+
 def new
   @car = Cars.new
 end
