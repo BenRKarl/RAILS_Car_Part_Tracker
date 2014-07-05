@@ -16,6 +16,17 @@ def create
   redirect_to car_path(@car.id)
 end
 
+def edit
+  @part = Part.find(params[:id])
+end
+
+def update
+  part = Part.find(params[:id])
+  car = Car.find(params[:car_id])
+  part.update(part_params)
+  redirect_to car_path(car.id)
+end
+
 def destroy
   car = Car.find(params[:car_id])
   part = Part.find(params[:id])
