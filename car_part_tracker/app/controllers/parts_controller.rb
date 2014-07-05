@@ -1,6 +1,7 @@
 class PartsController < ApplicationController
 
 def show
+  @car = Car.find(params[:car_id])
   @part = Part.find(params[:id])
 end
 

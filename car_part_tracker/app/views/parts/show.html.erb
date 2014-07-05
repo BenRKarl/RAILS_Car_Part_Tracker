@@ -1,0 +1,17 @@
+<h1>Here's that part:</h1>
+
+<ul><h2><%= @car.name %></h2>
+  <li><%= @part.name %></li>
+  <li><%= @part.part_type %></li>
+  <li><%= @part.part_number %></li>
+  <li><%= @part.repair_details %></li>
+</ul>
+
+<form action="/cars/<%= @car.id %>/parts/<%= @part.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Part">
+</form>
+
+<form action="/cars/<%= @car.id %>/parts/<%= @part.id %>" method="get">
+  <input type="submit" value="Edit Part">
+</form>
