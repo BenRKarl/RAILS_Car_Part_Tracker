@@ -98,7 +98,6 @@ describe CarsController do
         .to change(Car, :count).by(-1)
       end
     end #DELETE destroy
-
   end #Given a person
 
   describe 'GET new' do
