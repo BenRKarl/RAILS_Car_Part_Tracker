@@ -10,10 +10,17 @@ def new
 end
 
 def create
-  @car = Car.find(params[:car_id].to_i)
+  @car = Car.find(params[:car_id])
   @part = Part.create(part_params)
   @car.parts << @part
   redirect_to car_path(@car.id)
+end
+
+def destroy
+  car = Car.find(params[:car_id])
+  part = Part.find(params[:id])
+  part.destroy
+  redirect_to car_path(car.id)
 end
 
   # parts GET    /parts(.:format)          parts#index
