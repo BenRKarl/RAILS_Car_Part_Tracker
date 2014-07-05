@@ -1,4 +1,4 @@
-<%= form_for @part, :url => car_parts_path(@part.id) do |f| %>
+<%= form_for [@car, @part] do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %></br>
   <%= f.label :part_type %>:

@@ -7,6 +7,7 @@ end
 
 def new
   @part = Part.new
+  @car = Car.find(params[:car_id])
 end
 
 def create
@@ -18,13 +19,14 @@ end
 
 def edit
   @part = Part.find(params[:id])
+  @car = Car.find(params[:car_id])
 end
 
 def update
-  part = Part.find(params[:id])
-  car = Car.find(params[:car_id])
-  part.update(part_params)
-  redirect_to car_path(car.id)
+  @part = Part.find(params[:id])
+  @car = Car.find(params[:car_id])
+  @part.update(part_params)
+  redirect_to car_path(@car.id)
 end
 
 def destroy
@@ -33,15 +35,6 @@ def destroy
   part.destroy
   redirect_to car_path(car.id)
 end
-
-  # parts GET    /parts(.:format)          parts#index
-  #         POST   /parts(.:format)          parts#create
-  # new_part GET    /parts/new(.:format)      parts#new
-  # edit_part GET    /parts/:id/edit(.:format) parts#edit
-  #    part GET    /parts/:id(.:format)      parts#show
-  #         PATCH  /parts/:id(.:format)      parts#update
-  #         PUT    /parts/:id(.:format)      parts#update
-  #         DELETE /parts/:id(.:format)      parts#destroy
 
 private
 
