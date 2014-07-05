@@ -51,7 +51,6 @@ end
 
 That's about it for the set up phase! Our data model is ready to go and Active Record knows what belongs to what. Next stop should probably be your Gemfile, or your routes.
 
-#####Now Here's a list of random tips that are nice to keep in mind while developing.
 
 
 

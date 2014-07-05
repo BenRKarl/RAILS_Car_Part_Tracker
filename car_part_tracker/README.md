@@ -1,28 +1,52 @@
-== README
+###Car Part Tracker in Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+####If you work on cars you know that it's important to keep track of the parts you use in repairs so that you can easily buy replacements if necessary. In this app I'll demonstrate how to create a basic two-model rails app that can be used to save information about car repairs to a database for future reference.
 
-Things you may want to cover:
+#####Normally I would leave setup notes here for myself or others to help get things started, but getting started with Rails is probably the easiest part, so instead I'll leave non-linear notes about things that are particularly troublesome or easy to forget.
 
-* Ruby version
+After setting up your application with `rails new` the most important step before writing any code is to decide what you want your data model to be. It's easy move too quickly at this point and wind up with a schema that you don't like, so I prefer to carefully plan my relations first thing.
 
-* System dependencies
+Tracking car parts used in repairs can be done with two models. One for the car, and one for the part(s) used. We can imagine that we will only repair one car at a time, and all cars are unique thanks to their VIN, but there are many different parts. Therefore our relation will be a basic has_many, belongs_to association where a car "has many" parts and a part "belongs to" a car.
 
-* Configuration
+Now we can think about our tables:
 
-* Database creation
+1. Car
+    * name (nickname, owner's name, doesn't matter)
+    * VIN
+    * make
+    * model
 
-* Database initialization
+2. Part
+    * name
+    * type
+    * part_number
+    * repair_details
+    * car_id
 
-* How to run the test suite
+Repair details is probably too ambiguous of a column; in a professional setting this should probably be broken into smaller pieces (like mechanic name, cost of repair, date of repair), but it's sufficient for the purposes of this app.
 
-* Services (job queues, cache servers, search engines, etc.)
+Let's set this schema up in the command line from inside our new Rails app:
 
-* Deployment instructions
+`bin/rake db:create`
 
-* ...
+`rails g model Cars name:string VIN:string make:string model:string`
 
+`rails g model Parts name:string type:string part_number:string repair_details:string card_id:integer`
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+`bin/rake db:migrate`
+
+Now there's just one last step to specify the relationship between these two models, then we'll be ready to rock. In each of the model files:
+
+```ruby
+class Cars < ActiveRecord::Base
+  has_many :parts
+end
+```
+
+```ruby
+class Parts < ActiveRecord::Base
+  belongs_to :car
+end
+```
+
+That's about it for the set up phase! Our data model is ready to go and Active Record knows what belongs to what. Next stop should probably be your Gemfile, or your routes.
